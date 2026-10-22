@@ -49,5 +49,4 @@ public class App {
         acc1.withdraw(100);
         printBalance(acc1);
     }
-
 }
