@@ -5,11 +5,13 @@ import java.util.List;
 /** 
  * Represents a bank account with deposit, withdrawal, and freeze controls. 
  */
-public class BankAccount {
+public abstract class BankAccount {
     
     private final List<Transaction> transactionHistory;
     private double balance;
     private boolean isFrozen;
+
+    public abstract String getOwnerName();
 
     public BankAccount() {
         this.transactionHistory = new ArrayList<>();

@@ -10,8 +10,8 @@ public class BankAccountManager implements Bank{
     private int id;
 
     public BankAccountManager(){
-        accounts = new HashMap<>();
-        id=0;
+        this.accounts = new HashMap<>();
+        this.id=0;
     }
 
     public void addAccount(final BankAccount account){
@@ -29,7 +29,7 @@ public class BankAccountManager implements Bank{
     public void listAccounts() {
         for(Map.Entry<Integer, BankAccount> entry: accounts.entrySet()){
             BankAccount acc = entry.getValue();
-            System.out.println("Account id: %d, Account name: %s, Account balance: %.2f", entry.getKey(), acc.getOwnerName(), acc.getBalance());   
+            System.out.printf("Account id: %d, Account name: %s, Account balance: %.2f\n", entry.getKey(), acc.getOwnerName(), acc.getBalance());   
         }
     }
 }
