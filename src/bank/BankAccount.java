@@ -1,14 +1,18 @@
 package bank;
 
+import java.util.ArrayList;
+import java.util.List;
 /** 
  * Represents a bank account with deposit, withdrawal, and freeze controls. 
  */
 public class BankAccount {
-
+    
+    private final List<Transaction> transactionHistory;
     private double balance;
     private boolean isFrozen;
 
     public BankAccount() {
+        this.transactionHistory = new ArrayList<>();
         balance = 0;
         isFrozen = false;
     }
@@ -21,6 +25,7 @@ public class BankAccount {
             System.out.println("Invalid amount. Must be greater than 0");
         } else {
             balance += amount;
+            transactionHistory.add(new Transaction("Deposit", amount));
             System.out.printf("Amount deposited: %.2f%n", amount);
         }
     }
@@ -36,6 +41,7 @@ public class BankAccount {
             System.out.println("Insufficient balance.");
         } else {
             balance -= amount;
+            transactionHistory.add(new Transaction("Withdraw", amount));
             System.out.printf("Amount withdrawn: %.2f%n", amount);
         }
     }
@@ -54,5 +60,9 @@ public class BankAccount {
 
     public boolean isFrozen() {
         return isFrozen;
+    }
+
+    public List<Transaction> getTransactionHistory() {
+        return transactionHistory;
     }
 }

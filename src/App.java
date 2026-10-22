@@ -1,11 +1,12 @@
 import bank.BankAccount;
+import bank.BankAccountManager;
 import bank.SavingsAccount;
 
 /**
  * Runs the bank account exercise demonstrations.
  */
 public class App {
-        
+
     private static void printBalance(final BankAccount account) {
         System.out.printf("Current balance: %.2f%n", account.getBalance());
     }
@@ -48,6 +49,20 @@ public class App {
         acc1.unfreezeAccount();
         acc1.withdraw(100);
         printBalance(acc1);
-    }
 
+        System.out.println("\nTest 11");
+        System.out.println("Transaction history: " + acc1.getTransactionHistory());
+
+        System.out.println("\nTest 12");
+        BankAccountManager accM1 = new BankAccountManager();
+
+        System.out.println("\nTest 13");
+        accM1.addAccount(acc1);
+
+        System.out.println("\nTest 14");
+        accM1.addAccount(new SavingsAccount("Test1"));
+
+        System.out.println("\nTest 15");
+        accM1.listAccounts();
+    }
 }
