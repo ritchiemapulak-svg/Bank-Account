@@ -19,12 +19,8 @@ public abstract class BankAccount {
         isFrozen = false;
     }
 
-    /**
-     * Deposits money into the account.
-     * @param amount the amount to deposit
-     */
     public void deposit(final double amount) {
-        if (isFrozen()) {
+        if (isFrozen) {
             System.out.println("Account is FROZEN. Unable to transact.");
         } else if (amount <= 0) {
             System.out.println("Amount deposited: " + amount);
@@ -36,12 +32,8 @@ public abstract class BankAccount {
         }
     }
 
-    /**
-     * Withdraws money from the account.
-     * @param amount the amount to withdraw
-     */
     public void withdraw(final double amount) {
-        if (isFrozen()) {
+        if (isFrozen) {
             System.out.println("Account is FROZEN. Unable to transact.");
         } else if (amount <= 0) {
             System.out.println("Amount withdrawn: " + amount);
