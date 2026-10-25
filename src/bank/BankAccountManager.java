@@ -3,6 +3,9 @@ package bank;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Manages bank accounts, allowing for adding and retrieving accounts.
+ */
 public class BankAccountManager implements Bank{
 
     private static final int MAX_ACCOUNTS = 100;
@@ -14,6 +17,11 @@ public class BankAccountManager implements Bank{
         this.id=0;
     }
 
+    /**
+     * Adds a new bank account to the bank.
+     * 
+     * @param account The bank account to add.
+     */
     public void addAccount(final BankAccount account){
         if(accounts.size() >= MAX_ACCOUNTS){
             System.out.println("Account Limit Reached. Cannot add more.");
@@ -23,13 +31,25 @@ public class BankAccountManager implements Bank{
         System.out.println("Account added successfully with ID: " + id);
         id++;
     }
+    
+    /**
+     * Retrieves a bank account by its ID.
+     * 
+     * @param id The ID of the bank account to retrieve.
+     * @return The bank account with the specified ID, or null if not found.
+     */
     public BankAccount getAccount(final int id){
         return accounts.get(id);
     }
+
+    /**
+     * Lists all bank accounts managed by the bank account manager.
+     */
     public void listAccounts() {
         for(Map.Entry<Integer, BankAccount> entry: accounts.entrySet()){
             BankAccount acc = entry.getValue();
-            System.out.printf("Account id: %d, Account name: %s, Account balance: %.2f\n", entry.getKey(), acc.getOwnerName(), acc.getBalance());   
+            System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n",
+           entry.getKey(), acc.getOwnerName(), acc.getBalance()); 
         }
     }
 }

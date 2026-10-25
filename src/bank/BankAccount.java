@@ -2,11 +2,12 @@ package bank;
 
 import java.util.ArrayList;
 import java.util.List;
-/** 
- * Represents a bank account with deposit, withdrawal, and freeze controls. 
+
+/**
+ * Represents a bank account with deposit, withdrawal, and freeze controls.
  */
 public abstract class BankAccount {
-    
+
     private final List<Transaction> transactionHistory;
     private double balance;
     private boolean isFrozen;
@@ -56,17 +57,15 @@ public abstract class BankAccount {
             return;
         }
         if (amount > balance) {
-            System.out.println("Amount withdrawn: " + amount);
             System.out.println("Insufficient balance.");
-        } else {
-            balance -= amount;
-            transactionHistory.add(new Transaction("Withdraw", amount));
-            System.out.printf("Amount withdrawn: %.2f%n", amount);
+            return;
         }
         balance -= amount;
+        transactionHistory.add(new Transaction("Withdraw", amount));
         System.out.printf("Amount withdrawn: %.2f%n", amount);
+
     }
-    
+
     /**
      * Returns the current balance of the bank account.
      * 
@@ -90,6 +89,11 @@ public abstract class BankAccount {
         isFrozen = false;
     }
 
+    /**
+     * Returns the transaction history of the bank account.
+     * 
+     * @return A list of transactions.
+     */
     public List<Transaction> getTransactionHistory() {
         return transactionHistory;
     }
