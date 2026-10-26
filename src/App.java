@@ -60,7 +60,7 @@ public class App {
         accM1.addAccount(acc1);
 
         System.out.println("\nTest 14");
-        accM1.addAccount(new SavingsAccount("Test1"));
+        accM1.addAccount(new SavingsAccount("Ritchie"));
 
         System.out.println("\nTest 15");
         accM1.listAccounts();

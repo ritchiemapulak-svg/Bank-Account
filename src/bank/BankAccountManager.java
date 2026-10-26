@@ -48,8 +48,12 @@ public class BankAccountManager implements Bank{
     public void listAccounts() {
         for(Map.Entry<Integer, BankAccount> entry: accounts.entrySet()){
             BankAccount acc = entry.getValue();
+            String accountName = "NULL";
+            if (acc instanceof SavingsAccount) {
+                accountName = ((SavingsAccount) acc).getOwnerName();
+            }
             System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n",
-           entry.getKey(), acc.getOwnerName(), acc.getBalance()); 
+           entry.getKey(), accountName, acc.getBalance()); 
         }
     }
 }
