@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Transaction {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private final String type;
     private final double amount;
     private final LocalDateTime timestamp;
@@ -24,9 +24,10 @@ public class Transaction {
      * 
      * @return A string representation of the transaction.
      */
+    @Override
     public String toString() {
         return "\n  Transaction [type=" + type + ", amount=" + amount
-            + ", time_stamp=" + timestamp.format(formatter) + "]";
+            + ", time_stamp=" + timestamp.format(FORMATTER) + "]";
     }
 
     public double getAmount(){
