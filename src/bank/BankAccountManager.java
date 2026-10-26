@@ -1,7 +1,10 @@
 package bank;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Manages bank accounts, allowing for adding and retrieving accounts.
@@ -15,6 +18,20 @@ public class BankAccountManager implements Bank{
     public BankAccountManager(){
         this.accounts = new HashMap<>();
         this.id=0;
+    }
+
+    public List<Transaction> filteTransactionsAtOrAbove(double amount, List<Transaction> txList){
+        if(txList == null) return new ArrayList<>();
+
+        return txList.stream().filter(tx -> tx.getAmount() >= amount).collect(Collectors.toList());
+    }
+
+    public List<Transaction> sortTransactionsByAmount(List<Transaction> txList) {
+        if (txList == null) return new ArrayList<>();
+
+        List<Transaction> sortedList = new ArrayList<>(txList);
+        sortedList.sort((tx1, tx2) -> Double.compare(tx1.getAmount(), tx2.getAmount()));
+        return sortedList;
     }
 
     /**

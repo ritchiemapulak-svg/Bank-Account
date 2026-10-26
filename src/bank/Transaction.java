@@ -28,4 +28,8 @@ public class Transaction {
         return "\n  Transaction [type=" + type + ", amount=" + amount
             + ", time_stamp=" + timestamp.format(formatter) + "]";
     }
+
+    public double getAmount(){
+        return this.amount;
+    }
 }
