@@ -4,11 +4,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a transaction made on a bank account, including its type, amount, and timestamp.
+ * Represents a transaction made on a bank account, 
+ * including its type, amount, and timestamp.
  */
 public class Transaction {
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private static final DateTimeFormatter FORMATTER = 
+    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private final String type;
     private final double amount;
     private final LocalDateTime timestamp;
@@ -20,7 +22,8 @@ public class Transaction {
     }
     
     /**
-     * Returns a string representation of the transaction, including its type, amount, and timestamp.
+     * Returns a string representation of the transaction, 
+     * including its type, amount, and timestamp.
      * 
      * @return A string representation of the transaction.
      */

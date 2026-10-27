@@ -13,7 +13,8 @@ public interface Bank {
      * Retrieves a bank account by its ID.
      * 
      * @param id The ID of the bank account to retrieve.
-     * @return The bank account with the specified ID, or null if not found.
+     * @return The bank account with the specified ID, 
+     * or null if not found.
      */
     BankAccount getAccount(int id);
 }

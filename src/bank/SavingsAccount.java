@@ -11,6 +11,7 @@ public class SavingsAccount extends BankAccount {
         super();
         this.ownerName = ownerName;
     }
+    
     /**
      * Returns the name of the owner of this savings account.
      * 

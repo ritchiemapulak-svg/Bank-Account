@@ -12,7 +12,7 @@ public class App {
         System.out.println("EXERCISE 1: Bank Account with OOP Concepts");
         System.out.println("============================================");
 
-        BankAccount acc1 = new SavingsAccount("Test0");
+        BankAccount acc1 = new SavingsAccount("Test1");
 
         System.out.println("\nTest 1");
         System.out.println("Account Owner: "
@@ -104,7 +104,7 @@ public class App {
         accM1.addAccount(acc1);
 
         System.out.println("\nTest 4");
-        accM1.addAccount(new SavingsAccount("Ritchie"));
+        accM1.addAccount(new SavingsAccount("Test2"));
 
         System.out.println("\nTest 5");
         accM1.listAccounts();
@@ -114,12 +114,12 @@ public class App {
         System.out.println("EXERCISE 3: Exceptions and Lambda Expressions");
         System.out.println("============================================");
 
-        System.out.println("\n[Setup] Create account Test3 and add it");
-        BankAccountManager manager = new BankAccountManager();
+        System.out.println("\n[Setup] Create account Test3");
+        BankAccountManager accM2 = new BankAccountManager();
         BankAccount acc2 = new SavingsAccount("Test3");
-        manager.addAccount(acc2);
+        accM2.addAccount(acc2);
 
-        System.out.println("\n[Setup] Deposit 1000.125, then withdraw 500");
+        System.out.println("\n[Setup] Deposit and Withdraw");
         try {
             acc2.deposit(1000.125);
             acc2.withdraw(500);
@@ -179,12 +179,12 @@ public class App {
 
         System.out.println("\nTest Case 6");
         System.out.println("Filtering transactions at or above 200...");
-        System.out.println(manager.filterTransactionsAtOrAbove(
+        System.out.println(accM2.filterTransactionsAtOrAbove(
                 200, acc2.getTransactionHistory()));
 
         System.out.println("\nTest Case 7");
         System.out.println("Sorting transactions by amount...");
-        System.out.println(manager.sortTransactionsByAmount(
+        System.out.println(accM2.sortTransactionsByAmount(
                 acc2.getTransactionHistory()));
     }
 }

@@ -37,7 +37,8 @@ public class BankAccountManager implements Bank {
         }
         final List<Transaction> sortedList = new ArrayList<>(txList);
         sortedList.sort(
-                (tx1, tx2) -> Double.compare(tx1.getAmount(), tx2.getAmount()));
+                (tx1, tx2) -> Double.compare(tx1.getAmount(), 
+                tx2.getAmount()));
         return sortedList;
     }
 
@@ -61,7 +62,8 @@ public class BankAccountManager implements Bank {
      * Retrieves a bank account by its ID.
      * 
      * @param id The ID of the bank account to retrieve.
-     * @return The bank account with the specified ID, or null if not found.
+     * @return The bank account with the specified ID, 
+     * or null if not found.
      */
     @Override
     public BankAccount getAccount(final int accountId) {
