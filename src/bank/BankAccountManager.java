@@ -20,6 +20,13 @@ public class BankAccountManager implements Bank {
         this.id = 0;
     }
 
+    /**
+     * Filters transactions whose amount is at or above the given amount.
+     *
+     * @param amount The minimum amount (inclusive).
+     * @param txList The transactions to filter.
+     * @return A new list of the matching transactions.
+     */
     public List<Transaction> filterTransactionsAtOrAbove(
             final double amount, final List<Transaction> txList) {
         if (txList == null) {
@@ -30,6 +37,12 @@ public class BankAccountManager implements Bank {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Sorts transactions by amount in ascending order.
+     *
+     * @param txList The transactions to sort.
+     * @return A new list sorted from lowest to highest amount.
+     */
     public List<Transaction> sortTransactionsByAmount(
             final List<Transaction> txList) {
         if (txList == null) {

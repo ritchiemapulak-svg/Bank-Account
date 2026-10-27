@@ -97,7 +97,8 @@ public class BankAccount {
     public void withdraw(final double amount)
             throws InvalidAmountException, InsufficientFundsException, 
             AccountFrozenException {
-        if (isFrozen()) {
+        
+            if (isFrozen()) {
             throw new AccountFrozenException(FROZEN_MSG);
         }
         if (amount <= 0) {
@@ -113,6 +114,11 @@ public class BankAccount {
         System.out.printf("Amount withdrawn: %.2f%n", amount);
     }
 
+    /**
+     * Prints the current balance of the given account.
+     *
+     * @param account The account whose balance is printed.
+     */
     public void printBalance(final BankAccount account) {
         System.out.printf("Current balance: %.2f%n", 
         account.getBalance());
