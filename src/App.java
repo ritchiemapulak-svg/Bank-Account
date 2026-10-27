@@ -19,72 +19,36 @@ public class App {
                 + ((SavingsAccount) acc1).getOwnerName() + ".");
 
         System.out.println("\nTest 2");
-        try {
-            acc1.deposit(1000.125);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.deposit(1000.125);
         acc1.printBalance(acc1);
 
         System.out.println("\nTest 3");
-        try {
-            acc1.deposit(0);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
+        acc1.deposit(0);
+        
         System.out.println("\nTest 4");
-        try {
-            acc1.deposit(-500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.deposit(-500);
 
         System.out.println("\nTest 5");
-        try {
-            acc1.withdraw(500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.withdraw(500);
         acc1.printBalance(acc1);
 
         System.out.println("\nTest 6");
-        try {
-            acc1.withdraw(1500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            acc1.printBalance(acc1);
-        }
+        acc1.withdraw(1500);
+        acc1.printBalance(acc1);
 
         System.out.println("\nTest 7");
-        try {
-            acc1.withdraw(-100);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.withdraw(-100);
 
         System.out.println("\nTest 8");
         acc1.freezeAccount();
-        try {
-            acc1.deposit(11500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.deposit(11500);
 
         System.out.println("\nTest 9");
-        try {
-            acc1.withdraw(500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.withdraw(500);
 
         System.out.println("\nTest 10");
         acc1.unfreezeAccount();
-        try {
-            acc1.withdraw(100);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc1.withdraw(100);
         acc1.printBalance(acc1);
 
         // Exercise 2 test cases
@@ -120,71 +84,40 @@ public class App {
         accM2.addAccount(acc2);
 
         System.out.println("\n[Setup] Deposit and Withdraw");
-        try {
-            acc2.deposit(1000.125);
-            acc2.withdraw(500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc2.deposit(1000.125);
+        acc2.withdraw(500);
 
         System.out.println("\nTest Case 1");
-        try {
-            System.out.printf("Amount deposited: %.2f%n", -500.0);
-            acc2.deposit(-500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc2.deposit(-500);
 
         System.out.println("\nTest Case 2");
         acc2.freezeAccount();
-        try {
-            acc2.deposit(11500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc2.deposit(11500);
         acc2.unfreezeAccount();
 
         System.out.println("\nTest Case 3");
-        try {
-            System.out.printf("Amount withdrawn: %.2f%n", -100.0);
-            acc2.withdraw(-100);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
+        acc2.withdraw(-100);
+    
         System.out.println("\nTest Case 4");
-        try {
-            System.out.printf("Amount withdrawn: %.2f%n", 1500.0);
-            acc2.withdraw(1500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            acc2.printBalance(acc2);
-        }
+        acc2.withdraw(1500);
+        acc2.printBalance(acc2);
 
         System.out.println("\nTest Case 5");
         acc2.freezeAccount();
-        try {
-            acc2.withdraw(500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc2.withdraw(500);
         acc2.unfreezeAccount();
 
         System.out.println("\n[Setup] Withdraw 100 (needed for sort test)");
-        try {
-            acc2.withdraw(100);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        acc2.withdraw(100);
 
         System.out.println("\nTest Case 6");
         System.out.println("Filtering transactions at or above 200...");
         System.out.println(accM2.filterTransactionsAtOrAbove(
-                200, acc2.getTransactionHistory()));
+        200, acc2.getTransactionHistory()));
 
         System.out.println("\nTest Case 7");
         System.out.println("Sorting transactions by amount...");
         System.out.println(accM2.sortTransactionsByAmount(
-                acc2.getTransactionHistory()));
+        acc2.getTransactionHistory()));
     }
 }
